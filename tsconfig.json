@@ -20,11 +20,11 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "pages": [
-        "./pages"
+      "components/*": [
+        "components/*"
       ],
-      "styles": [
-        "./styles"
+      "styles/*": [
+        "styles/*"
       ]
     }
   },

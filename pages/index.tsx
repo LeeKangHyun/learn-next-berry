@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import type { GetStaticProps } from 'next';
 
 import styles from 'styles/Home.module.scss';
-import Layout from './components/layout';
+import Layout from 'components/layout';
 
 type Props = {
   data: any,
