@@ -8,10 +8,16 @@ function Nav() {
         <a className={styles.link}>❤️</a>
       </Link>
 
-      <ul>
+      <ul className={styles.list}>
         <li>
           <Link href="/vanilla/video">
             <a>비디오</a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/react/recoil">
+            <a>recoil</a>
           </Link>
         </li>
       </ul>

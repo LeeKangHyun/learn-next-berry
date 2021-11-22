@@ -4,14 +4,19 @@
   width: 100%;
   height: 64px;
   padding: 0 2rem;
+}
 
-  > ul {
-    display: flex;
-    margin-left: auto;
-    list-style: none;
+.list {
+  display: flex;
+  margin-left: auto;
+  list-style: none;
 
-    > li {
-    }
+  > li {
+
+  }
+
+  > li + li {
+    margin-left: 8px;
   }
 }
 
