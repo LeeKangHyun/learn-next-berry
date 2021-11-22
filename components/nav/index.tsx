@@ -9,10 +9,11 @@ function Nav() {
       </Link>
 
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
+        <li>
+          <Link href="/vanilla/video">
+            <a>비디오</a>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
