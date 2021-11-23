@@ -1,7 +1,7 @@
 import { ChangeEvent, SyntheticEvent } from 'react';
 import { atom, useRecoilState, selector, useRecoilValue } from 'recoil';
 import Head from 'next/head';
-import Layout from 'components/layout';
+import { Layout } from 'components';
 
 const textState = atom({
   key: 'textState',

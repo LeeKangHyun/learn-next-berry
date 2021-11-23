@@ -6,12 +6,10 @@ type Props = {
   children?: ReactNode;
 };
 
-function Layout({ children }: Props) {
+export function Layout({ children }: Props) {
   return (
     <div className={styles.container}>
       {children}
     </div>
   )
 }
-
-export default Layout;

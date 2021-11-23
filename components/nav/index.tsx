@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './nav.module.scss';
 
-function Nav() {
+export function Nav() {
   return (
     <nav className={styles.nav}>
       <Link href="/">
@@ -20,9 +20,13 @@ function Nav() {
             <a>recoil</a>
           </Link>
         </li>
+
+        <li>
+          <Link href="/react/react-query">
+            <a>react-query</a>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
 }
-
-export default Nav;

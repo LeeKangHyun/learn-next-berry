@@ -1,14 +1,15 @@
 import Head from 'next/head';
 
-import useVideo from './useVideo';
+import { useVideo } from 'hooks';
 
-import Layout from 'components/layout';
+import { Layout } from 'components';
 
 function Video() {
   const {
     videoRef,
     onClick,
   } = useVideo();
+
   return (
     <Layout>
       <Head>

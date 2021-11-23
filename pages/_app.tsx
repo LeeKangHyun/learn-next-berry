@@ -1,11 +1,11 @@
 import '../styles/globals.css';
 import { useRef } from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { RecoilRoot } from 'recoil';
+
 import type { AppProps } from 'next/app';
 
-import Nav from 'components/nav';
+import { Nav } from 'components';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = useRef(new QueryClient());
@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </RecoilRoot>
       </Hydrate>
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

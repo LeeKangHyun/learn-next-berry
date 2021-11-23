@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import Layout from 'components/layout';
+
+import { Layout } from 'components';
 
 function Home() {
   return (
@@ -11,7 +12,7 @@ function Home() {
       </Head>
 
       <main>
-        Hello World
+        <h1>Hello Next World</h1>
       </main>
     </Layout>
   );

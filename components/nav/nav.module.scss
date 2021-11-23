@@ -12,7 +12,9 @@
   list-style: none;
 
   > li {
-
+    > a:hover {
+      text-decoration: underline;
+    }
   }
 
   > li + li {
