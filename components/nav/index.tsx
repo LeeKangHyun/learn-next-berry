@@ -10,6 +10,12 @@ export function Nav() {
 
       <ul className={styles.list}>
         <li>
+          <Link href="/vanilla/dom-parser">
+            <a>돔파서</a>
+          </Link>
+        </li>
+
+        <li>
           <Link href="/vanilla/video">
             <a>비디오</a>
           </Link>

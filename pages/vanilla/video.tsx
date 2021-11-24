@@ -13,7 +13,7 @@ function Video() {
   return (
     <Layout>
       <Head>
-        <title>vanilla -&gt; video</title>
+        <title>Vanilla -&gt; video</title>
       </Head>
       <main>
         <video ref={videoRef} width="600px" controls />

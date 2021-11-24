@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async (
+const Project = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ) => {
@@ -21,4 +21,6 @@ export default async (
   await new Promise(r => setTimeout(r, 5E2));
 
   res.json({ projects, hasMore: page < 9 });
-}
+};
+
+export default Project;

@@ -20,11 +20,20 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      "components": [
+        "components"
+      ],
       "components/*": [
         "components/*"
       ],
+      "hooks": [
+        "hooks"
+      ],
       "hooks/*": [
         "hooks/*"
+      ],
+      "styles": [
+        "styles"
       ],
       "styles/*": [
         "styles/*"
