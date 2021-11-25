@@ -22,6 +22,12 @@ export function Nav() {
         </li>
 
         <li>
+          <Link href="/react/context">
+            <a>react-context</a>
+          </Link>
+        </li>
+
+        <li>
           <Link href="/react/recoil">
             <a>recoil</a>
           </Link>
