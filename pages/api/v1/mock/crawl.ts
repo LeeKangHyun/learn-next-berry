@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import axios from 'axios';
 import puppeteer from 'puppeteer';
 
 const MockCrawl = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -12,15 +11,24 @@ const MockCrawl = async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     const anchorList = await page.$$<HTMLAnchorElement>('td.title a.titlelink');
-    console.log(anchorList);
+
+    const arr = anchorList.map(async (anchor) => {
+      return await anchor.evaluate(el => el.textContent);
+    });
+
+    const valueList = [];
+
+    for await (let datum of arr) {
+      valueList.push(datum);
+    }
 
     await browser.close();
 
-    res.status(200).json({});
+    res.status(200).json(valueList);
 
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 export default MockCrawl;

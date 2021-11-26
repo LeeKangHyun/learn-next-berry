@@ -1,31 +1,31 @@
-import { useCallback, useRef } from 'react';
+import { useRef } from 'react';
 
-export function useVideo() {
+const mediaOptions = { video: true };
+
+export function useVideoRecording() {
+  const chunksRef = useRef<Blob[]>([]);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const mediaRef = useRef<MediaRecorder>();
 
-  const onClick = useCallback(async () => {
+  async function onClick() {
     try {
-      const stream = await navigator.mediaDevices.getDisplayMedia({
-        video: true,
-      });
-
+      const stream = await navigator.mediaDevices.getDisplayMedia(mediaOptions);
       const mime = MediaRecorder.isTypeSupported('video/webm; codecs=vp9')
+
         ? 'video/webm; codecs=vp9'
         : 'video/webm';
 
-      const mediaRecorder = new MediaRecorder(stream, {
+      mediaRef.current = new MediaRecorder(stream, {
         mimeType: mime,
       });
 
-      const chunks: Blob[] = [];
-
-      mediaRecorder.addEventListener('dataavailable', function(evt) {
-        chunks.push(evt.data);
+      mediaRef.current.addEventListener('dataavailable', function(evt) {
+        chunksRef.current.push(evt.data);
       });
 
-      mediaRecorder.addEventListener('stop', function() {
-        let blob = new Blob(chunks, {
-          type: chunks[0].type,
+      mediaRef.current.addEventListener('stop', function() {
+        let blob = new Blob(chunksRef.current, {
+          type: chunksRef.current[0].type,
         });
 
         const url = URL.createObjectURL(blob);
@@ -36,15 +36,54 @@ export function useVideo() {
 
         const _a = document.createElement('a');
         _a.href = url;
+        _a.download = 'video.webm';
         _a.click();
       });
 
-      mediaRecorder.start();
+      mediaRef.current.start();
+
     } catch (err) {
       alert(err);
       console.log(err);
     }
-  }, []);
+  }
+
+  function onClickStop() {
+    if (mediaRef.current) {
+      if (mediaRef.current.state === 'recording') {
+        mediaRef.current.pause();
+      }
+    }
+  }
+
+  return {
+    videoRef, mediaRef,
+    onClick,
+    onClickStop,
+  };
+}
+
+export function useVideoStreaming() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  async function onClick() {
+    try {
+
+      const stream = await navigator.mediaDevices.getDisplayMedia(mediaOptions);
+
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+
+        videoRef.current.onloadedmetadata = function() {
+          videoRef.current?.play();
+        };
+      }
+
+    } catch (err) {
+      alert(err);
+      console.log(err);
+    }
+  }
 
   return {
     videoRef,
