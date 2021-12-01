@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.0",
     "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
@@ -20,6 +21,7 @@
     "axios": "^0.24.0",
     "eslint": "7",
     "eslint-config-next": "12.0.4",
+    "eslint-plugin-import": "^2.25.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",

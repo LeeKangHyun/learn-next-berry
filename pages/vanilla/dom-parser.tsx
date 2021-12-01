@@ -1,17 +1,11 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import type { NextApiResponse } from 'next';
 import Head from 'next/head';
-import { Layout, ErrorBoundary } from 'components';
 
-function Cccc() {
-  function onClickBomb() {
-    throw new Error('!!!!!!!!!!!1');
-  }
+import { Layout } from 'components';
 
-  return (
-    <button onClick={onClickBomb}>
-      BOMB
-    </button>
-  );
-}
+import { jsx, css } from '@emotion/react';
 
 function DomParser() {
   return (
@@ -19,9 +13,7 @@ function DomParser() {
       <Head>
         <title>Vanilla -&gt; dom-parser</title>
       </Head>
-      <ErrorBoundary>
-        <Cccc />
-      </ErrorBoundary>
+      
     </Layout>
   );
 }

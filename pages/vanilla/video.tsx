@@ -1,8 +1,19 @@
+import fs from 'fs';
+import type { NextApiResponse} from 'next';
 import Head from 'next/head';
+
+import axios from 'axios';
 
 import { useVideoRecording, useVideoStreaming } from 'hooks';
 
 import { Layout } from 'components';
+
+import { Nav } from 'components/nav';
+import { useReactQuery } from 'hooks/useReactQuery';
+
+import Query from '../react/react-query';
+
+import Dom from'./dom-parser';
 import styles from './video.module.scss';
 
 function Video() {
