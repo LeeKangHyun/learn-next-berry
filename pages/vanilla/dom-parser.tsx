@@ -1,5 +1,17 @@
 import Head from 'next/head';
-import { Layout } from 'components';
+import { Layout, ErrorBoundary } from 'components';
+
+function Cccc() {
+  function onClickBomb() {
+    throw new Error('!!!!!!!!!!!1');
+  }
+
+  return (
+    <button onClick={onClickBomb}>
+      BOMB
+    </button>
+  );
+}
 
 function DomParser() {
   return (
@@ -7,6 +19,9 @@ function DomParser() {
       <Head>
         <title>Vanilla -&gt; dom-parser</title>
       </Head>
+      <ErrorBoundary>
+        <Cccc />
+      </ErrorBoundary>
     </Layout>
   );
 }
