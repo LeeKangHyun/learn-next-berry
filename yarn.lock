@@ -1301,7 +1301,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/testing-library__jest-dom@npm:^5.9.1":
+"@types/testing-library__jest-dom@npm:^5, @types/testing-library__jest-dom@npm:^5.9.1":
   version: 5.14.2
   resolution: "@types/testing-library__jest-dom@npm:5.14.2"
   dependencies:
@@ -5516,6 +5516,7 @@ __metadata:
     "@types/jest": ^27.0.3
     "@types/node": 16.11.7
     "@types/react": ^17.0.35
+    "@types/testing-library__jest-dom": ^5
     "@yarnpkg/plugin-compat": ^3.1.1
     axios: ^0.24.0
     eslint: 7

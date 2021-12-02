@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ErrorBoundary } from 'components';
 
-import { prettyDOM } from '@testing-library/dom';
+import { screen, prettyDOM, waitFor } from '@testing-library/dom';
 import { render } from 'utils/test-utils';
 
 function Bomb() {
@@ -11,13 +11,15 @@ function Bomb() {
 }
 
 describe('Error Boundary', () => {
-  it('standard', () => {
-    const { container } = render(
+  it('standard', async () => {
+    render(
       <ErrorBoundary>
         <Bomb />
       </ErrorBoundary>,
     );
 
-    console.log(prettyDOM(container))
+    await waitFor(() => screen.getByTestId('error'));
+
+    expect(screen.getByText('Has Error....')).toBeInTheDocument();
   });
 });
