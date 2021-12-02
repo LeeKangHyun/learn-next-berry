@@ -12,8 +12,8 @@
         "groups": [
           "builtin",
           [
-            "external",
-            "unknown"
+            "unknown",
+            "external"
           ],
           "internal",
           "parent",
@@ -26,6 +26,10 @@
           {
             "pattern": "axios",
             "group": "external"
+          },
+          {
+            "pattern": "react",
+            "group": "builtin"
           },
           {
             "pattern": "next",

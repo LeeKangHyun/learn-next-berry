@@ -1,27 +1,23 @@
-/**
- * @jest-environment jsdom
- */
+import React from 'react';
+
 import { ErrorBoundary } from 'components';
 
-import React from 'react';
+import { prettyDOM } from '@testing-library/dom';
 import { render } from 'utils/test-utils';
 
-test('standard', () => {
-  render(
-    <div>
-      Hello World
-    </div>,
-  );
-});
+function Bomb() {
+  throw new Error('Errrrrrrrrrrrrrrrrrrrorrrrrrrrrrrrrrrr!!!!!!');
+  return null;
+}
 
 describe('Error Boundary', () => {
   it('standard', () => {
-    render(
-      <div>
-        Hello World
-      </div>,
+    const { container } = render(
+      <ErrorBoundary>
+        <Bomb />
+      </ErrorBoundary>,
     );
 
-    expect(true).toBeTruthy();
+    console.log(prettyDOM(container))
   });
 });
